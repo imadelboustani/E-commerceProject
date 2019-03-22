@@ -1,0 +1,32 @@
+
+<div class="container row">
+  <div class="col-md-3"></div>
+  <div class="col-md-9">
+    <h1 class="align-content-center"> Shopping Cart</h1>
+    <p> you have {{this.cartService.sumItems() }}  items in your shopping Cart </p>
+<table class="table table-borderless ">
+  <thead>
+  <tr>
+    <th scope="col" class=""></th>
+    <th scope="col" class="">Product</th>
+    <th scope="col">Quantity</th>
+    <th scope="col"> Price</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let k of keys">
+    <td class="mb-5"> <img [src]="k.imagePath" class="rounded-circle img-fluid  h-50 w-34" alt="Responsive image"></td>
+    <td class=""> {{k.name}}</td>
+    <td> <button class="btn btn-info  mr-4 w-15">-</button>  {{ this.cartService.getProductCount(k)}}   <button class="btn btn-info w-15 ml-4 mr-0"> +</button></td>
+    <td> {{this.cartService.getPrice(k)}} $</td>
+  </tr>
+  <tr>
+    <td colspan="4" class="text-right"> ${{this.cartService.getTotalPrice() }}</td>
+  </tr>
+
+  </tbody>
+</table>
+    <button class="btn btn-danger" (click)="onClearCart()" > clear shopping cart </button>
+  </div>
+</div>

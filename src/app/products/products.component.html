@@ -1,0 +1,40 @@
+<button class="btn btn-primary"> new Product </button>
+<div></div>
+<form>
+  <input type="text" class="form-control"  (keyup)="applyFilter($event.target.value)" placeholder="serach...">
+</form>
+
+
+<div class="mat-elevation-z8 t">
+  <table mat-table [dataSource]="dataSource"  matSort class ="table table-striped ">
+
+    <!-- Position Column -->
+
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="prix">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
+      <td mat-cell *matCellDef="let element"> {{element.prix}}  </td>
+    </ng-container>
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element;let i =index"> <button type="button" mat-raised-button color="accent" (click)="onEditProduct(i)"> edit </button> </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" (click) ="handleHeaderRow(element)"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedColumns;" (click)="handleRow(element)"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>
+
+
+
