@@ -18,7 +18,7 @@
   <tr *ngFor="let k of keys">
     <td class="mb-5"> <img [src]="k.imagePath" class="rounded-circle img-fluid  h-50 w-34" alt="Responsive image"></td>
     <td class=""> {{k.name}}</td>
-    <td> <button class="btn btn-info  mr-4 w-15">-</button>  {{ this.cartService.getProductCount(k)}}   <button class="btn btn-info w-15 ml-4 mr-0"> +</button></td>
+    <td> <button class="btn btn-info  mr-4 w-15" >-</button>   {{ this.cartService.getProductCount(k)}}   <button class="btn btn-info w-15 ml-4 mr-0"> +</button></td>
     <td> {{this.cartService.getPrice(k)}} $</td>
   </tr>
   <tr>
@@ -27,6 +27,8 @@
 
   </tbody>
 </table>
-    <button class="btn btn-danger" (click)="onClearCart()" > clear shopping cart </button>
+
+  <div><button class="btn btn-primary " (click)="onClearCart()" > clear shopping cart </button> </div>
+    <div> <button class="btn btn-danger" (click)="onChange()" > order </button> </div>
   </div>
 </div>

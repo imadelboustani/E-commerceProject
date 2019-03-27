@@ -18,6 +18,8 @@ import {HttpModule} from '@angular/http';
 import { NewProductComponent } from './products/new-product/new-product.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import {ShoppingCartService} from './shopping-cart/shopping-cart.service';
+import { CheckOutComponent } from './check-out/check-out.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 
@@ -31,7 +33,9 @@ import {ShoppingCartService} from './shopping-cart/shopping-cart.service';
     ProductsComponent,
     ProductEditComponent,
     NewProductComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    CheckOutComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

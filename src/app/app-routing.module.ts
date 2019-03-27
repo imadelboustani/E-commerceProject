@@ -8,12 +8,14 @@ import {ProductsComponent} from './products/products.component';
 import {ProductEditComponent} from './products/product-edit/product-edit.component';
 import {NewProductComponent} from './products/new-product/new-product.component';
 import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
+import {CheckOutComponent} from './check-out/check-out.component';
 
 const routes: Routes = [
   {path: 'shopping-card', component: ShoppingCartComponent},
   {path: '', component: HomeComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent},
+  {path: 'check-out', component: CheckOutComponent},
   {path: 'products/edit/:id', component: ProductEditComponent},
   {path: 'products', component: ProductsComponent },
   {path: 'shoppingCard', component: ShoppingCartComponent },

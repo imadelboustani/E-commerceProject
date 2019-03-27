@@ -42,19 +42,18 @@ export class HomeComponent implements OnInit {
     this.show[i] = true;
   }
   addItem(product: Product) {
-  let tmp = this.shoppingService.getProductCount(product);
-    if(tmp === undefined) {
-    this.shoppingService.addProduct(product, 1); } else {
-      this.shoppingService.addProduct(product, tmp + 1);
-    }
-    }
-    deleteItem(product: Product, indice: number) {
+ // let tmp = this.shoppingService.getProductCount(product);
+  //  if (tmp === undefined) {
+    this.shoppingService.addProduct(product, 1); }  //else {
+     // this.shoppingService.addProduct(product, );
+    //}
+  deleteItem(product: Product, indice: number) {
       let tmp = this.shoppingService.getProductCount(product);
       if (tmp === undefined || tmp < 2) {
         this.shoppingService.deleteProduct(product);
         this.show[indice] = false;
     } else {
-      this.shoppingService.addProduct(product, tmp-1);
+      this.shoppingService.addProduct(product, tmp - 1);
       }
     }
 }

@@ -8,16 +8,39 @@ export class ShoppingCartService {
   constructor() {
     this.cartProducts = new Map<Product, number>();
   }
+  updateProduct(product: Product, count: number) {
+    for (const  product1 of Array.from(this.getAllProducts().keys())) {
+      if(product1.name === product.name) {
+        const tmp = this.cartProducts.get(product1);
+         this.cartProducts.set(product1, tmp + count);
+         return;
+      }
+
+    }
+    return;
+      }
 
   addProduct(product: Product, count: number) {
-    this.cartProducts.set(product, count);
-    this.cartChanged.emit(this.sumItems());
+    console.log(this.existProduct(product));
+     if (this.existProduct(product)) {
+       this.updateProduct(product, count); }
+     else { this.cartProducts.set(product, count); }
+     this.cartChanged.emit(this.sumItems());
   }
 
   getProductCount(product: Product) {
     return this.cartProducts.get(product);
   }
 
+  existProduct(product: Product) {
+    let tr = false;
+    for (let product1 of Array.from(this.getAllProducts().keys())) {
+      if (product1.name === product.name) {
+         tr = true;
+      }
+    }
+    return tr;
+  }
   deleteProduct(product: Product) {
     this.cartProducts.delete(product);
     this.cartChanged.emit(this.sumItems());

@@ -1,0 +1,43 @@
+<div class="row container">
+  <div class="col-md-6">
+    <h1> Shipping </h1>
+    <form #f="ngForm" (ngSubmit)="onAddProduct(f)">
+      <div class="form-group ">
+        <label for="title">Name </label>
+        <input type="text" class="form-control " id="title" aria-describedby="emailHelp" name="name" ngModel  #title="ngModel">
+        <div class="form-group mb-5">
+          <label class="my-1 mr-2" for="category">Adresse </label>
+          <input type="text" class="form-control" id="category" aria-describedby="emailHelp"  placeholder="Line 1" name="category" ngModel  #category="ngModel">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Line 2" name="category" ngModel  #category="ngModel">
+        </div>
+        <div class="form-group ">
+          <label for="exampleInputPassword1"> City</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" name="city" ngModel >
+        </div>
+        <button class="btn btn-primary"> Place Order </button>
+      </div>
+    </form>
+
+  </div>
+
+  <div class="col-md-6 ">
+
+    <div class="card" >
+      <div class="card-header">
+        <h3>Order Summary </h3>
+        <p class="card-text"> you have 4 items</p>
+      </div>
+      <ul class="list-group list-group-flush" *ngFor="let product of products">
+        <li class="list-group-item"><h6 class="d-inline mr-5 "> {{this.ss.getProductCount(product)}}X{{product.name}} </h6 >  <h6 class="d-inline ml-5"> ${{this.ss.getPrice(product)}} </h6></li>
+      </ul>
+      <div class="card-footer"> <h6 class=" d-inline mr-5">Total</h6> {{ this.ss.getTotalPrice() }}  </div>
+    </div>
+
+
+  </div>
+
+
+
+</div>
